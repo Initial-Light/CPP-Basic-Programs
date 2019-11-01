@@ -1,0 +1,13 @@
+//HelloME Program
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	cout << "Hello. My name is Arkar Chan." << endl << endl;
+
+	//Causes the program to pause.
+	system("pause");
+	return 0;
+}
