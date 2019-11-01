@@ -1,2 +1,3 @@
-# Initial-Light
-Still learning what this is about
+# Basic C++ Programs
+
+This respository contains all the programs that I've written in Los Angeles City College.
