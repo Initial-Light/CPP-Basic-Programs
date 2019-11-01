@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	//Defining the constants
+	const int QUATERS = 25, DIMES = 10, NICKELS = 5, PENNIES = 1;
+
+	//Defining the required variables
+	int change = 0, numQuaters = 0, numDimes = 0, numNickels = 0, numPennies = 0;
+
+	cout << "Enter a positive Integer number: ";
+
+	//Asking input from the user
+	cin >> change;
+	cout << "\n";
+
+	//Validating input. Must be a positive integer value
+	if (change > 0)
+	{
+		//Calculating the number of Quaters and then subtracting the value from the total change
+		numQuaters = change / QUATERS;
+		change -= (numQuaters * QUATERS);
+
+		//Calculating the number of Dimes and then subtracting the value from the total change
+		numDimes = change / DIMES;
+		change -= (numDimes * DIMES);
+
+		//Calculating the number of Nickels and then subtracting the value from the total change
+		numNickels = change / NICKELS;
+		change -= (numNickels * NICKELS);
+
+		//Calculating the number of Pennies and then subtracting the value from the total change
+		numPennies = change / PENNIES;
+		change -= (numPennies * PENNIES);
+
+		//If the value is not zero, then display number of Quaters
+		if (numQuaters != 0)  
+		{
+			//If statement for proper grammer
+			if (numQuaters == 1)
+				cout << "There is " << numQuaters << " Quater.\n";  
+			else
+				cout << "There are " << numQuaters << " Quaters.\n"; 
+		}
+
+		//If the value is not zero, then display number of Dimes
+		if (numDimes != 0) 
+		{
+			//If statement for proper grammer
+			if (numDimes == 1)
+				cout << "There is " << numDimes << " Dime.\n";   
+			else
+				cout << "There are " << numDimes << " Dimes.\n";  
+		}
+
+		//If the value is not zero, then display number of Nickels
+		if (numNickels != 0)  
+		{
+			//If statement for proper grammer
+			if (numNickels == 1)
+				cout << "There is " << numNickels << " Nickel.\n";  
+			else
+				cout << "There are " << numNickels << " Nickels.\n";  
+		}
+
+		//If the value is not zero, then display number of Pennies
+		if (numPennies != 0)  
+		{
+			//If statement for proper grammer
+			if (numPennies == 1)
+				cout << "There is " << numPennies << " Penny.\n";  
+			else
+				cout << "There are " << numPennies << " Pennies.\n";  
+		}
+	}
+	else
+	{
+		cout << "\nInvalid Input. Only accept positive integers.\n\n";  //Error checking
+	} 
+
+	system("pause");
+	return 0;
+}

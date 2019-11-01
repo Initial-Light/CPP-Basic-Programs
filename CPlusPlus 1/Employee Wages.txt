@@ -1,0 +1,45 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	const int NUM_EMPLOYEE = 7;  //A constant representing the number of employees
+
+	//Declaring and Initializing the necessary arrays.
+	int empID[NUM_EMPLOYEE] = { 1,2,3,4,5,6,7 };
+	int hours[NUM_EMPLOYEE];
+	double payRate[NUM_EMPLOYEE];
+	double wages[NUM_EMPLOYEE];
+
+	cout << "Enter the requested information for each employee.\n";
+
+	//Using for loop to ask inputs from user and store them into respective arrays.
+	for (int count = 0; count < NUM_EMPLOYEE; count++)
+	{
+		cout << "\nEmployee #" << empID[count];
+		cout << "\n\tHours worked: ";
+		cin >> hours[count];
+		cout << "\tPay rate: $";
+		cin >> payRate[count];
+
+		wages[count] = hours[count] * payRate[count];  //Calculate the gross wage and store the values in the array.
+	}
+
+	//Formatting
+	cout << "\n------------------------------\n";
+	cout << "Employee\t\tWages\n";
+	cout << "------------------------------";
+	cout << fixed << setprecision(2);
+
+	//Display the values stored previously in the arrays.
+	for (int count = 0; count < NUM_EMPLOYEE; count++)
+	{
+		cout << "\n\nEmployee #" << empID[count];
+		cout << "\t\t$" << wages[count];
+	}
+
+	cout << "\n\n";
+	system("pause");
+	return 0;
+}

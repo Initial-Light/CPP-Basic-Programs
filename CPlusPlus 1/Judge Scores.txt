@@ -1,0 +1,99 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+//Functions prototype
+void getJudgeData(double&);
+double calcScore(double, double, double, double, double);
+double findLowest(double, double, double, double, double);
+double findHighest(double, double, double, double, double);
+
+int main()
+{
+	double score1, score2, score3, score4, score5;
+
+	//Call function getJudgeData for 5 inputs
+	getJudgeData(score1);
+	getJudgeData(score2);
+	getJudgeData(score3);
+	getJudgeData(score4);
+	getJudgeData(score5);
+
+	cout << fixed << setprecision(1);
+	cout << "\nAfter dropping the highest and lowest score, the average score is ";
+	
+	//Call function calcScore passing it the 5 inputs and displaying the result
+	cout << calcScore(score1, score2, score3, score4, score5) << endl << endl;
+
+	system("pause");   //pausing the system
+	return 0;
+}
+
+//This function validates the user input
+void getJudgeData(double &score)
+{
+	do
+	{
+		cout << "Enter a Judge's score: ";
+		cin >> score;
+
+		if (score < 0 || score > 10)
+		{
+			cout << "Invalid Score, must be between 0 and 10.\n";
+
+		}
+	} while (score < 0 || score > 10);
+}
+
+//This function calculates the average of the scores after dropping the highest and the lowest score.
+double calcScore(double score1, double score2, double score3, double score4, double score5)
+{
+	double average, low, high;
+
+	low = findLowest(score1, score2, score3, score4, score5);  // 
+	high = findHighest(score1, score2, score3, score4, score5);
+	average = (score1 + score2 + score3 + score4 + score5 - low - high)/3;
+	
+	return average;
+}
+
+
+//This function finds and returns the Lowest score
+double findLowest(double score1, double score2, double score3, double score4, double score5)
+{
+	double low = score1;
+
+	if (score2 < low)
+		low = score2;
+
+	if (score3 < low)
+		low = score3;
+
+	if (score4 < low)
+		low = score4;
+
+	if (score5 < low)
+		low = score5;
+
+	return low;
+}
+
+//This function finds and returns the Highest score
+double findHighest(double score1, double score2, double score3, double score4, double score5)
+{
+	double high = score1;
+
+	if (score2 > high)
+		high = score2;
+
+	if (score3 > high)
+		high = score3;
+
+	if (score4 > high)
+		high = score4;
+
+	if (score5 > high)
+		high = score5;
+
+	return high;
+}

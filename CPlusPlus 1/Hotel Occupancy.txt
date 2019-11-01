@@ -1,0 +1,72 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+
+	//Intializing the required variables
+	int totalFloors = 0;
+	int roomsOnFloor = 0;
+	int emptyRooms = 0;
+	double totalRooms = 0.00;
+	int occupiedRoomsOnFloor = 0;
+	double totalOccupiedRooms = 0.00;
+	double percentOccupied = 0.00;
+
+	//Ask number of floors from user
+	cout << "Enter the number of Floors: ";
+	cin >> totalFloors;
+
+	//If user enters value less than or equal to 0, ask again the number of floors
+	while (totalFloors <= 0)
+	{
+		cout << "Number of floors must be greater than 0. Please re-enter: ";
+		cin >> totalFloors;
+	}
+
+	//Repeating from Floor 1 to the floor that user entered
+	for (int count = 1; count <= totalFloors; count++)
+	{
+		//This is to not include the 13th floor
+		if (count != 13)
+		{
+			//Ask number of rooms from user
+			cout << "\nEnter the number of rooms on Floor " << count << ": ";
+			cin >> roomsOnFloor;
+
+			//If user enters value less than 10, ask again the number of rooms
+			while (roomsOnFloor < 10)
+			{
+				cout << "Number of rooms must be greater than or equal to 10. Please re-enter: ";
+				cin >> roomsOnFloor;
+			}
+
+			//Ask number of occupied rooms on the floor from user
+			cout << "How many Rooms are occupied on Floor " << count << ": ";
+			cin >> occupiedRoomsOnFloor;
+
+			//If user enters value greater than the number of rooms on the floor, ask again the number of occupied rooms
+			while (occupiedRoomsOnFloor > roomsOnFloor)
+			{
+				cout << "The number should be between 0 and " << roomsOnFloor << ". Please re-enter: ";
+				cin >> occupiedRoomsOnFloor;
+			}
+
+			totalRooms += roomsOnFloor;  //Adding the total number of rooms
+			totalOccupiedRooms += occupiedRoomsOnFloor;  //Adding the total number of occupied rooms
+		}
+	}
+
+	percentOccupied = (totalOccupiedRooms / totalRooms) * 100;  	//Calculating the Occupied Percentage
+	emptyRooms = totalRooms - totalOccupiedRooms;    //Calculating the number of empty rooms
+
+	//Displaying the Results
+	cout << "\nThe hotel has total of " << totalRooms << " rooms\n";
+	cout << "There are " << totalOccupiedRooms << " rooms occupied\n";
+	cout << "There are " << emptyRooms << " empty rooms\n";
+	cout << "Percentage of occupied rooms is " << fixed << setprecision(2) << percentOccupied << "%\n/n";
+
+	system("pause");
+	return 0;
+}

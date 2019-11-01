@@ -1,0 +1,110 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+//Function Prototpyes
+void SelectionSort(double*, int);
+double AverageCalc(double*, int);
+void swap(double&, double&);
+
+int main()
+{
+	//Necessary Variables declaration
+	double* scores = nullptr; //Pointer variable
+	int numExam = 0;
+
+	//Ask number of tests from user
+	cout << "How many Tests will you Enter?: ";
+	cin >> numExam;
+	//Input Validation
+	while (numExam < 0)
+	{
+		cout << "Test Number cannot be negative.\n";
+		cout << "Enter another number: ";
+		cin >> numExam;
+	}
+
+	//Creating Dynamically Allocated Memory
+	scores = new double[numExam];
+
+	//Ask test scores from user and store them in array
+	for (int count = 0; count < numExam; count++)
+	{
+		cout << "Enter Test " << (count + 1) << ": ";
+		cin >> *(scores + count);
+		//Input Validation
+		while (*(scores + count) < 0) 
+		{
+			cout << "Negative score is not allowed.\nEnter another score for this Test: ";
+			cin >> *(scores + count);
+		}
+	}
+
+	SelectionSort(scores, numExam); //Calling the function SelectionSort
+
+	//Displaying the ascending-ordered test scores and formatting
+	cout << "\nThe Test Scores in ascending order, and their average are: \n\n";
+	cout << "Score" << endl << "-----\n\n";
+	cout << fixed << showpoint << setprecision(2);
+
+	for (int count = 0; count < numExam; count++)
+	{
+		cout << *(scores+count) << endl;
+	}
+
+	//Calling the function AverageCalc and displaying the result
+	cout << "\nAverage Score: " << AverageCalc(scores, numExam);
+	cout << endl << endl;
+
+	delete[] scores; //Free the dynamically allocated memory
+	scores = nullptr; //Makes scores a null pointer
+
+	system("pause");
+	return 0;
+}
+
+//Function for Selection Sort Algorithm
+void SelectionSort(double* arr, int size)
+{
+	int minIndex = 0;
+	double minValue = 0.0;
+
+	//Selection Sort Algorithm of ascending order
+	for (int start = 0; start < (size - 1); start++)
+	{
+		minIndex = start;
+		minValue = *(arr+start);
+		for (int index = start + 1; index < size; index++)
+		{
+			if (*(arr+index) < minValue)
+			{
+				minValue = *(arr+index);
+				minIndex = index;
+			}
+		}
+		swap(*(arr+minIndex), *(arr+start));
+	}
+}
+
+//Function for Calculating the Average
+double AverageCalc(double* arr, int num)
+{
+	double total = 0.0;
+	double average = 0.0;
+
+	for (int count = 0; count < num; count++)
+	{
+		total += *(arr+count);
+	}
+
+	average = total / num;
+	return average; //Return average to where it is called
+}
+
+//Function for swap
+void swap(double& a, double& b)
+{
+	double temp = a;
+	a = b;
+	b = temp;
+}

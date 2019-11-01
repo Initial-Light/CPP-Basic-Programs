@@ -1,0 +1,34 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	ifstream inputFile; // Create inputFile Object
+
+	// Necessary variables
+	int num = 0;
+	int total = 0;
+	int count = 0;
+
+	inputFile.open("C:\\Users\\arkar\\Downloads\\Random.txt"); // Open File Path
+
+	// While loop for reading data from the file
+	while (inputFile >> num)
+	{
+		count += 1;
+		total += num;
+	}
+
+	double average = static_cast<double>(total) / count; // Casting to double datatype and store in average variable
+
+	// Display the desire results
+	cout << "Number of numbers: " << count << endl;
+	cout << "Sum of numbers: " << total << endl;
+	cout << "Average of numbers: " << average << endl << endl;
+
+	inputFile.close(); // Close File
+
+	system("pause");
+	return 0;
+}

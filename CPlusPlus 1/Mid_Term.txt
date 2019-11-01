@@ -1,0 +1,116 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+//Function Prototype
+double CalcTotal(int, double, double, double);
+double CalcTotal(double, double);
+
+int main()
+{
+	//Required Variables Declaration
+	char patientType;
+	int daySpent = 0;
+	double dailyRate = 0;
+	double medicationCharge = 0;
+	double serviceCharge = 0;
+
+	//Asking for Patient Type from User Input
+	cout << "What is the patient type?\n";
+	cout << "Please Enter 'I' <or> 'i' for In-patient, 'O' <or> 'o' for Out-patient: ";
+	cin >> patientType;
+
+	//Input Validation, looping until user enters only one of 'I' 'i' 'O' 'o'
+	while (patientType != 'I' && patientType != 'O' && patientType != 'i' && patientType != 'o')
+	{
+		cout << "Please Enter only 'I' 'i' or 'O' 'o': ";
+		cin >> patientType;
+	}
+
+	//For In-patient if user enters 'I' 'i'
+	if (patientType == 'I' || patientType == 'i')
+	{
+		//Number of days input and validation
+		cout << "\nEnter number of days spent in hospital: ";
+		cin >> daySpent;
+		while (daySpent < 0)
+		{
+			cout << "Day Spent must be greater than or equal to 0: ";
+			cin >> daySpent;
+		}
+
+		//Daily rate input and validation
+		cout << "Enter daily rate: $";
+		cin >> dailyRate;
+		while (dailyRate < 0)
+		{
+			cout << "Daily Rate must be greater than or equal to 0: ";
+			cin >> dailyRate;
+		}
+
+		//Medication Charges input and validation
+		cout << "Enter Medication Charges: $";
+		cin >> medicationCharge;
+		while (medicationCharge < 0)
+		{
+			cout << "Medication Charges must be greater than or equal to 0: ";
+			cin >> medicationCharge;
+		}
+
+		//Service Charges input and validation
+		cout << "Enter Service Charges: $";
+		cin >> serviceCharge;
+		while (serviceCharge < 0)
+		{
+			cout << "Service Charges must be greater than or equal to 0: ";
+			cin >> serviceCharge;
+		}
+
+		//Display Total Charges from function CalcTotal (In-patient)
+		cout << fixed << setprecision(2);
+		cout << "The Total Charges are $" << CalcTotal(daySpent, dailyRate, medicationCharge, serviceCharge) << endl << endl;
+	}
+
+	//For Out-patient if user enters 'O' 'o'
+	else if (patientType == 'O' || patientType == 'o')
+	{
+		//Medication Charges input and validation
+		cout << "\nEnter Medication Charges: $";
+		cin >> medicationCharge;
+		while (medicationCharge < 0)
+		{
+			cout << "Medication Charges must be greater than or equal to 0: ";
+			cin >> medicationCharge;
+		}
+
+		//Service Charges input and validation
+		cout << "Enter Service Charges: $";
+		cin >> serviceCharge;
+		while (serviceCharge < 0)
+		{
+			cout << "Service Charges must be greater than or equal to 0: ";
+			cin >> serviceCharge;
+		}
+
+		//Display Total Charges from function CalcTotal (Out-patient)
+		cout << fixed << setprecision(2);
+		cout << "The Total Charges are $" << CalcTotal(medicationCharge, serviceCharge) << endl << endl;
+	}
+
+	system("pause");
+	return 0;
+}
+
+//This Function is for calculating In-patient charges
+double CalcTotal(int daySpent, double dailyRate, double medicationCharge, double serviceCharge)
+{
+	double totalCharge = (daySpent*dailyRate) + medicationCharge + serviceCharge;
+	return totalCharge;
+}
+
+//This Function is for calculating Out-patient charges
+double CalcTotal(double medicationCharge, double serviceCharge)
+{
+	double totalCharge = medicationCharge + serviceCharge;
+	return totalCharge;
+}

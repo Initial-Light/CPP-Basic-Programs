@@ -1,0 +1,83 @@
+#include <iostream>
+using namespace std;
+
+//Function prototypes
+void BubbleSort(int[], int);
+void SelectionSort(int[], int);
+void swap(int&, int&);
+
+int main()
+{
+	//Constant and Array Declaration
+	const int SIZE = 20;
+	int bubble_array[SIZE] = { 20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1 };
+	int selection_array[SIZE] = { 20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1 };
+
+	//Calling the functions
+	BubbleSort(bubble_array, SIZE);
+	SelectionSort(selection_array, SIZE);
+
+	system("pause");
+	return 0;
+}
+
+//Function for Bubble Sort Algorithm
+void BubbleSort(int array[], int size)
+{
+	//Necessary variables declaration
+	int maxElement = 0;
+	int index = 0;
+	int exchange = 0;
+
+	//Bubble Sort Algorithm
+	for (maxElement = size - 1; maxElement > 0; maxElement--)
+	{
+		for (index = 0; index < maxElement; index++)
+		{
+			if (array[index] > array[index + 1])
+			{
+				swap(array[index], array[index + 1]);
+				exchange += 1; //Exchange count
+			}
+		}
+	}
+
+	cout << exchange << " exchanges were made by Bubble Sort.\n"; //Exchanges made by bubble sort is displayed
+}
+
+//Function for Selection Sort Algorithm
+void SelectionSort(int array[], int size)
+{
+	//Necessary variables declaration
+	int minIndex = 0;
+	int minValue = 0;
+	int exchange = 0;
+
+	//Selection Sort Algorithm
+	for (int start = 0; start < (size - 1); start++)
+	{
+		minIndex = start;
+		minValue = array[start];
+		for (int index = start + 1; index < size; index++)
+		{
+			if (array[index] < minValue)
+			{
+				minValue = array[index];
+				minIndex = index;
+			}
+		}
+		swap(array[minIndex], array[start]);
+		exchange += 1; //Exchange count
+	}
+
+	cout << endl << exchange << " exchanges were made by Selection Sort.\n\n"; //Exchanges made by selection sort is displayed
+
+}
+
+//Function for Swap
+void swap(int& a, int& b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
