@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	//Variables
+	double num1, num2, num3, num4, num5, average;
+
+	cout << "This program calculates the average of 5 numbers.\n\n";
+
+	//Asking inputs from User 5 times.
+	cout << "Please Enter the First number.\n";
+	cin >> num1;
+	cout << endl;
+
+	cout << "Please Enter the Second number.\n";
+	cin >> num2;
+	cout << endl;
+
+	cout << "Please Enter the Third number.\n";
+	cin >> num3;
+	cout << endl;
+
+	cout << "Please Enter the Fourth number.\n";
+	cin >> num4;
+	cout << endl;
+
+	cout << "Please Enter the Fifth number.\n";
+	cin >> num5;
+	cout << endl;
+
+	//Calculating the average of the 5 numbers and displaying the result.
+	average = (num1 + num2 + num3 + num4 + num5) / 5;
+	cout << "The average of the five numbers is " << average << ".\n\n";
+
+	//Causes the system to pause.
+	system("pause");
+
+	return 0;
+
+}

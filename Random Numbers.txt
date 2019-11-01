@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	//Declaring the minimum and maximum values as constants.
+	const int MIN_VALUE = 1;
+	const int MAX_VALUE = 10;
+
+	//Declaring the essential variables.
+	int num1, num2;
+	double sum, difference, product, quotient;
+
+	//Using system time to seed the random function.
+	unsigned seed = time(0);
+	srand(seed);
+
+	//Generating two random positive integers between 1 and 10 and displaying them.
+	cout << "Generating two random positive integers between 1 and 10...\n\n";
+	num1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+	num2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+	cout << num1 << endl;
+	cout << num2 << endl << endl;
+
+	//Calculating the sum and displaying the result.
+	sum = num1 + num2;
+	cout << "Sum of the two numbers: " << fixed << setprecision(2) << sum << endl;
+
+	//Calculating the difference and displaying the result.
+	difference = num1 - num2;
+	cout << "Difference of the two numbers: " << fixed << setprecision(2) << difference << endl;
+
+	//Calculating the product and displaying the result.
+	product = num1 * num2;
+	cout << "Product of the two numbers: " << fixed << setprecision(2) << product << endl;
+
+	//Casting the variables into double datatype, calculating the quotient and displaying the result.
+	quotient = static_cast<double>(num1) / static_cast<double>(num2);
+	cout << "Quotient of the two numbers: " << fixed << setprecision(2) << quotient << endl << endl;
+	
+	//Causes the system to pause.
+	system("pause");
+	return 0;
+}
