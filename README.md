@@ -2,6 +2,8 @@
 
 This respository contains all the programs that I've written in Los Angeles City College.
 The programs are seperated in two folders: CPlusPlus 1 & CPlusPlus 2.
+The Textbook that we use in the class is **C++ From Control Strucutres through Objects**
+Here is the [link](https://www.amazon.com/Starting-Out-Control-Structures-Objects/dp/0133769399)
 
 ### CPlusPlus 1
 
