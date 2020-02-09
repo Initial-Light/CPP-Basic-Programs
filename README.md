@@ -10,8 +10,8 @@ Here is the [link](https://www.amazon.com/Starting-Out-Control-Structures-Object
 
 ### CPlusPlus 1
 
-This folder contains all the programs that I've written from CoSci139 in Los Angeles City College.
+This folder contains all the programs that I've written from CoSci139 with Professor Flores in Los Angeles City College.
 
 ### CPlusPlus 2
 
-This folder contains all the programs that I've written from CoSci140 in Los Angeles City College.
+This folder contains all the programs that I've written from CoSci140 with Professor Flores in Los Angeles City College.
